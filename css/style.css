@@ -1218,6 +1218,7 @@ a {
 .filter {
 	display: flex;
 	flex-wrap: wrap;
+	margin-bottom: 30px;
 }
 
 .filter__item {
@@ -1225,6 +1226,7 @@ a {
 	padding: 0;
 	margin: 0;
 	margin-right: 14px;
+	margin-bottom: 10px;
 }
 
 .filter legend {
@@ -1333,7 +1335,10 @@ a {
 }
 
 .filter__fatness input[type="radio"] {
-	display: none;
+	/*display: none;*/
+	position: absolute;
+	height: 0px;
+
 }
 
 .filter__fatness-item {
@@ -1394,7 +1399,7 @@ input[type="radio"]:disabled + .filter__fatness-amount::before {
 }
 
 input[type="checkbox"]:checked + .filler__type-name::before {
-	background-image: url(../img/checkbox-on.svg);
+	background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNyIgaGVpZ2h0PSIyMyIgdmlld0JveD0iMCAwIDI3IDIzIj48cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNNy4yODUgNy40ODZsLTIuODI5IDIuODI5IDcuNzgzIDcuNzgzTDI2LjE3MSA0LjE2NmwtMi44MjgtMi44MjktMTEuMTA0IDExLjEwMnoiLz48cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNMjEgMjBjMCAuNTQyLS40NTggMS0xIDFIM2MtLjU0MiAwLTEtLjQ1OC0xLTFWM2MwLS41NDIuNDU4LTEgMS0xaDE2LjkwOEwyMS40OTMuNDE1QTIuOTYgMi45NiAwIDAgMCAyMCAwSDNDMS4zNSAwIDAgMS4zNSAwIDN2MTdjMCAxLjY1IDEuMzUgMyAzIDNoMTdjMS42NSAwIDMtMS4zNSAzLTN2LTkuODI5bC0yIDJWMjB6Ii8+PC9zdmc+Cg==);
 }
 
 input[type="checkbox"]:disabled + .filler__type-name::before {
@@ -1404,8 +1409,36 @@ input[type="checkbox"]:disabled + .filler__type-name::before {
 .filter__fatness-amount:hover::before,
 input[type="radio"]:focus + .filter__fatness-amount::before,
 .filler__type-name:hover::before,
+.filler__type-name:focus::before,
 input[type="checkbox"]:focus + .filler__type-name::before {
 	filter: drop-shadow(0 0 5px red);
+}
+
+.filter__submit {
+	padding: 9px 27px;
+	font-family: inherit;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 18px;
+	border: 1px solid #fff;
+	border-radius: 20px;
+	background: transparent;
+	color: #fff;
+	align-self: flex-end;
+	margin-bottom: 10px;
+}
+
+.filter__submit:hover,
+.filter__submit:focus {
+	color: #000;
+	background: #fff;
+}
+
+.filter__submit:active {
+	color: #000;
+	background: #eaeaea;
+	border: 1px solid #eaeaea;
+	box-shadow: 0 -1px 0 0 #6a6b6a;
 }
 
 .ice-cream {
@@ -1418,7 +1451,30 @@ input[type="checkbox"]:focus + .filler__type-name::before {
 }
 
 .ice-cream__item {
-	width: 268px;
+	position: relative;
+	width: 22.2%;
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+.ice-cream__image {
+	width: 100%;
+}
+
+.ice-cream__price {
+	position: relative;
+	padding: 0;
+	margin: 0;
+	margin-top: -60px;
+	font-size: 45px;
+	line-height: 45px;
+	font-weight: 700;
+	filter: drop-shadow(1px 1px 0 #66766e);
+	margin-bottom: 20px;
+}
+
+.ice-cream__name {
+	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .page-numbers {
@@ -1428,6 +1484,63 @@ input[type="checkbox"]:focus + .filler__type-name::before {
 	display: flex;
 	margin-left: auto;
 	width: 200px;
+	margin-bottom: 30px;
+}
+
+.page-numbers__number {
+	background: transparent;
+	border: 0;
+	color: #fff;
+	font-family: inherit;
+	font-size: 16px;
+	line-height: 18px;
+	padding: 6px 10px;
+	border-radius: 20px;
+	position: relative;
+
+}
+
+.page-numbers__item:first-child .page-numbers__number,
+.page-numbers__item:last-child .page-numbers__number {
+	min-width: 27px;
+	box-sizing: border-box;
+	min-height: 27px;
+}
+
+
+.page-numbers__item:first-child .page-numbers__number::before,
+.page-numbers__item:last-child .page-numbers__number::before {
+	position: relative;
+	display: block;
+	content: '';
+	top: 0;
+	left: 0;
+	width: 7px;
+	height: 7px;
+	border-bottom: 1px solid #fff;
+	border-right: 1px solid #fff;
+	transform: rotate(135deg);
+}
+
+.page-numbers__item:last-child .page-numbers__number::before {
+	transform: rotate(-45deg);
+}
+
+.page-numbers__number:hover,
+.page-numbers__number:focus {
+	background: #fff;
+	color: #000;
+}
+
+.page-numbers__item:first-child .page-numbers__number:hover::before,
+.page-numbers__item:first-child .page-numbers__number:focus::before,
+.page-numbers__item:last-child .page-numbers__number:hover::before,
+.page-numbers__item:last-child .page-numbers__number:focus::before {
+	border-color: #000;
+}
+
+.ice-cream__catalogue {
+	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .subpage .container {
